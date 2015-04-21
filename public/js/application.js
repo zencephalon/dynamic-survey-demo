@@ -1,7 +1,21 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  var $survey_ele = $('.survey_creator');
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+  if ($survey_ele.length > 0) {
+    console.log("Hello world!");
+
+    Mousetrap.bind('ctrl+enter', function(e) {
+      $survey_ele.trigger('createQuestion');
+    });
+
+    Mousetrap.bind('enter', function(e) {
+      var $target = $(e.target);
+      if ($target.hasClass('question')) {
+        console.log("emitting createChoice event")
+        $target.closest('.question_creator').trigger('createChoice');
+      }
+    });
+
+    var survey = new Survey($survey_ele);
+  }
 });
