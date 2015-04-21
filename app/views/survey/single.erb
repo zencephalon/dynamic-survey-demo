@@ -1,0 +1,12 @@
+<ol>
+<% @survey.questions.each do |question| %>
+  <li>
+    <%= question.name %>
+    <ol>
+      <% question.choices.each do |choice| %>
+        <li><%= choice.name %>
+      <% end %>
+    </ol>
+  </li>
+<% end %>
+</ol>
