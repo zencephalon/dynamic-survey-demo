@@ -11,7 +11,6 @@ $(document).ready(function() {
     Mousetrap.bind('enter', function(e) {
       var $target = $(e.target);
       if ($target.hasClass('question')) {
-        console.log("emitting createChoice event")
         $target.closest('.question_creator').trigger('createChoice');
       }
     });

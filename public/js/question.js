@@ -6,9 +6,6 @@ function Question($survey_ele) {
   var self = this;
 
   this.$ele.on('createChoice', function(event) {
-    console.log("Inside of question model", event);
-    console.log(self.$ele.children('.choice_list'));
-
     self.$ele.children('.choice_list').append('<li><input class="choice"></li>');
   })
 }
@@ -16,7 +13,7 @@ function Question($survey_ele) {
 Question.prototype.toJSON = function() {
   return {
     name: this.$ele.children('.question').val(),
-    choices: this.$ele.find('.choice').map(function(index, ele) {
+    choices: this.$ele.find('.choice').toArray().map(function(ele) {
       return $(ele).val();
     })
   }
