@@ -1,0 +1,7 @@
+survey = Survey.create(name: "Love?")
+question = survey.questions.create(name: "ILUVU?")
+question.choices.create(name: "Yes")
+question.choices.create(name: "No")
+question = survey.questions.create(name: "ULUVI?")
+question.choices.create(name: "Yes")
+question.choices.create(name: "No")
